@@ -30,7 +30,7 @@ export default class TodoItem extends React.Component {
 							checked={todo.completed}
 							onChange={this.handleToggle}
 						/>
-						<label onDoubleClick={this.handleEdit}>
+						<label className="item-label" onDoubleClick={this.handleEdit}>
 							{todo.title}
 						</label>
 						<div className='edit-tag-btn'>
