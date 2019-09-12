@@ -8,7 +8,7 @@ import TodoItem from './todoItem';
 @observer
 export default class TodoOverview extends React.Component {
 	render() {
-		const {todoStore, viewStore} = this.props;
+		const {todoStore, viewStore, tagStore} = this.props;
 		if (todoStore.todos.length === 0)
 			return null;
 		return <section className="main">
@@ -26,6 +26,7 @@ export default class TodoOverview extends React.Component {
 						key={todo.id}
 						todo={todo}
 						viewStore={viewStore}
+						tagStore={tagStore}
 					/>)
 				)}
 			</ul>
@@ -54,5 +55,6 @@ export default class TodoOverview extends React.Component {
 
 TodoOverview.propTypes = {
 	viewStore: PropTypes.object.isRequired,
-	todoStore: PropTypes.object.isRequired
+	todoStore: PropTypes.object.isRequired,
+	tagStore: PropTypes.object.isRequired,
 }

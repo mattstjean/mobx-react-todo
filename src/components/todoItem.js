@@ -6,6 +6,7 @@ import LocalOfferOutlinedIcon from '@material-ui/icons/LocalOfferOutlined';
 import DeleteOutlinedIcon from '@material-ui/icons/DeleteOutlined';
 import IconButton from '@material-ui/core/IconButton';
 import '../styles/todoItem.css';
+import TodoTag from './todoTag';
 
 const ESCAPE_KEY = 27;
 const ENTER_KEY = 13;
@@ -14,7 +15,8 @@ const ENTER_KEY = 13;
 export default class TodoItem extends React.Component {
 	@observable editText = "";
 	render() {
-		const {todo} = this.props;
+		const {todo, viewStore, tagStore} = this.props;
+		console.log(this.props);
 		return (
 			<li className={[
 				todo.completed ? "completed": "",
@@ -43,7 +45,7 @@ export default class TodoItem extends React.Component {
 						</div>
 					</div>
 					<div className="tag-row">
-						
+						<TodoTag todo={todo} viewStore={viewStore} tagStore={tagStore} />
 					</div>
 				</div>
 				<input
@@ -121,5 +123,6 @@ export default class TodoItem extends React.Component {
 
 TodoItem.propTypes = {
 	todo: PropTypes.object.isRequired,
-	viewStore: PropTypes.object.isRequired
+	viewStore: PropTypes.object.isRequired,
+	tagStore: PropTypes.object.isRequired,
 };

@@ -5,7 +5,6 @@ import * as Utils from '../utils';
 
 export default class TodoStore {
 	@observable todos = [];
-	@observable tags = new Map();
 
 	@computed get activeTodoCount() {
 		return this.todos.reduce(
@@ -32,29 +31,6 @@ export default class TodoStore {
 	@action
 	addTodo (title) {
 		this.todos.push(new TodoModel(this, Utils.uuid(), title, false, []));
-	}
-
-	@action
-	addTag (title) {
-		// if tag already exists, update count
-		if (this.tags.has(title)) {
-			var newCount = this.tags.get(title) + 1;
-			this.tags.set(title, newCount);
-		} else {
-			// otherwise, add it to the tag map with a count of 1
-			this.tags.set(title, 1);
-		}
-	}
-
-	@action
-	removeTag (title) {
-		// if tag count > 1, simply update count
-		if (this.tags.has(title) && this.tags.get(title) > 1) {
-			var newCount = this.tags.get(title) - 1;
-			this.tags.set(title, newCount);
-		} else if (this.tags.get(title) === 1) {
-			this.tags.delete(title);
-		}
 	}
 
 	@action

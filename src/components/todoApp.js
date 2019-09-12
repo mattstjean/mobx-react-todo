@@ -12,7 +12,7 @@ import DevTool from 'mobx-react-devtools';
 @observer
 export default class TodoApp extends React.Component {
 	render() {
-		const {todoStore, viewStore} = this.props;
+		const {todoStore, viewStore, tagStore} = this.props;
 		return (
 			<div>
 				<DevTool />
@@ -20,7 +20,7 @@ export default class TodoApp extends React.Component {
 					<h1>todos</h1>
 					<TodoEntry todoStore={todoStore} />
 				</header>
-				<TodoOverview todoStore={todoStore} viewStore={viewStore} />
+				<TodoOverview todoStore={todoStore} viewStore={viewStore} tagStore={tagStore} />
 				<TodoFooter todoStore={todoStore} viewStore={viewStore} />
 			</div>
 		);
@@ -42,5 +42,6 @@ export default class TodoApp extends React.Component {
 
 TodoApp.propTypes = {
 	viewStore: PropTypes.object.isRequired,
-	todoStore: PropTypes.object.isRequired
+	todoStore: PropTypes.object.isRequired,
+	tagStore: PropTypes.object.isRequired,
 };
