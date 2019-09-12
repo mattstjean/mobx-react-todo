@@ -1,12 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {observer} from 'mobx-react';
-import '../styles/todoTag.css';
 import { computed } from 'mobx';
+import ChipInput from 'material-ui-chip-input';
+import '../styles/todoTag.css';
 
 @observer
 export default class TodoTag extends React.Component {
 	render() {
+        const {viewStore, tagStore, todo} = this.props;
         return (this.isTagsBeingEdited ? <this.EditTagView /> : <this.DefaultTagView />);
     }
 
@@ -23,7 +25,12 @@ export default class TodoTag extends React.Component {
 
     EditTagView() {
         return (
-            <p> Editing! </p>
+            <ChipInput
+                fullWidth
+                label='Tags'
+                placeholder='Type and press enter to add tags'
+                className='chip-input'
+            />
         );
     }
 }

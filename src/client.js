@@ -5,6 +5,7 @@ import TagStore from './stores/TagStore';
 import TodoApp from './components/todoApp.js';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import '../src/styles/index.css';
 
 const initialState = window.initialState && JSON.parse(window.initialState) || {};
 

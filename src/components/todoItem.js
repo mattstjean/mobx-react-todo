@@ -44,9 +44,7 @@ export default class TodoItem extends React.Component {
 							</IconButton>
 						</div>
 					</div>
-					<div className="tag-row">
-						<TodoTag todo={todo} viewStore={viewStore} tagStore={tagStore} />
-					</div>
+					<TodoTag todo={todo} viewStore={viewStore} tagStore={tagStore} />
 				</div>
 				<input
 					ref="editField"
