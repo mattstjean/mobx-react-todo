@@ -7,7 +7,6 @@ import '../styles/todoTag.css';
 
 @observer
 export default class TodoTag extends React.Component {
-    @observable tags = [];
 
 	render() {
         const {viewStore, tagStore, todo} = this.props;
@@ -17,6 +16,11 @@ export default class TodoTag extends React.Component {
     @computed
 	get isTagsBeingEdited() {
 		return this.props.viewStore.todoEditingTags === this.props.todo;
+    }
+    
+    @computed
+    get tags() {
+        return this.props.todo.tags;
     }
     
     DefaultTagView() {

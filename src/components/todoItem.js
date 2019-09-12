@@ -76,6 +76,9 @@ export default class TodoItem extends React.Component {
 
 	@action
 	handleDestroy = () => {
+		this.props.todo.tags.map(tag => {
+			this.props.tagStore.removeTag(tag);
+		});
 		this.props.todo.destroy();
 		this.props.viewStore.todoBeingEdited = null;
 	};
