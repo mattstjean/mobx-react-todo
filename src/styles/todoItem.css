@@ -1,4 +1,4 @@
-.todo-list li .add-tag-btn {
+.todo-list li .edit-tag-btn {
     right: 50px;
 }
 
@@ -6,7 +6,7 @@
     right: 10px;
 }
 
-.todo-list li .add-tag-btn, .todo-list li .delete-todo-btn {
+.todo-list li .edit-tag-btn, .todo-list li .delete-todo-btn {
 	display: none;
 	position: absolute;
 	top: 5px;
@@ -21,6 +21,6 @@
 	transition: color 0.2s ease-out;
 }
 
-.todo-list li:hover .add-tag-btn, .todo-list li:hover .delete-todo-btn {
+.todo-list li:hover .edit-tag-btn, .todo-list li:hover .delete-todo-btn {
 	display: block;
 }

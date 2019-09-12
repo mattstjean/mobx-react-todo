@@ -1,15 +1,29 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import {observer} from 'mobx-react';
-import {action} from 'mobx';
+import '../styles/todoTag.css';
+import { computed } from 'mobx';
 
 @observer
 export default class TodoTag extends React.Component {
 	render() {
-        console.log(this.props);
+        return (this.isTagsBeingEdited ? <this.EditTagView /> : <this.DefaultTagView />);
+    }
+
+    @computed
+	get isTagsBeingEdited() {
+		return this.props.viewStore.todoEditingTags === this.props.todo;
+    }
+    
+    DefaultTagView() {
         return (
-            <p>todo tag works</p>
+            <p> Not editing! </p>
+        );
+    }
+
+    EditTagView() {
+        return (
+            <p> Editing! </p>
         );
     }
 }

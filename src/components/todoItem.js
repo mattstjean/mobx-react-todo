@@ -33,8 +33,8 @@ export default class TodoItem extends React.Component {
 						<label onDoubleClick={this.handleEdit}>
 							{todo.title}
 						</label>
-						<div className='add-tag-btn'>
-							<IconButton aria-label="add tag" disableFocusRipple disableRipple onClick={this.handleAddTag}>
+						<div className='edit-tag-btn'>
+							<IconButton aria-label="edit tags" disableFocusRipple disableRipple onClick={this.handleEditTags}>
 								<LocalOfferOutlinedIcon />
 							</IconButton>
 						</div>
@@ -84,8 +84,9 @@ export default class TodoItem extends React.Component {
 	};
 
 	@action
-	handleAddTag = () => {
-		console.log('add tag');
+	handleEditTags = () => {
+		const todo = this.props.todo;
+		this.props.viewStore.todoEditingTags = todo;
 	};
 
 	@action
