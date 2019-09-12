@@ -1,0 +1,24 @@
+.chip-input input::-webkit-input-placeholder {
+	font-style: italic;
+	font-weight: 300;
+    color: #cdcdcd;
+    opacity: unset;
+}
+
+.chip-input input::-moz-placeholder {
+	font-style: italic;
+	font-weight: 300;
+    color: #cdcdcd;
+    opacity: unset;
+}
+
+.chip-input input::input-placeholder {
+	font-style: italic;
+	font-weight: 300;
+    color: #cdcdcd;
+    opacity: unset;
+}
+
+.chip-input label {
+    padding-left: 10px;
+}

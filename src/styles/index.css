@@ -49,22 +49,22 @@ body {
 	            0 25px 50px 0 rgba(0, 0, 0, 0.1);
 }
 
-.todoapp input::-webkit-input-placeholder {
+.new-todo::-webkit-input-placeholder {
 	font-style: italic;
 	font-weight: 300;
-	color: #e6e6e6;
+	color: #cdcdcd;
 }
 
-.todoapp input::-moz-placeholder {
+.new-todo::-moz-placeholder {
 	font-style: italic;
 	font-weight: 300;
-	color: #e6e6e6;
+	color: #cdcdcd;
 }
 
-.todoapp input::input-placeholder {
+.new-todo::input-placeholder {
 	font-style: italic;
 	font-weight: 300;
-	color: #e6e6e6;
+	color: #cdcdcd;
 }
 
 .todoapp h1 {
