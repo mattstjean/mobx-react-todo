@@ -2,6 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {observer} from 'mobx-react';
 import {observable, action, computed} from 'mobx';
+import LocalOfferOutlinedIcon from '@material-ui/icons/LocalOfferOutlined';
+import DeleteOutlinedIcon from '@material-ui/icons/DeleteOutlined';
+import IconButton from '@material-ui/core/IconButton';
+import '../styles/todoItem.css';
 
 const ESCAPE_KEY = 27;
 const ENTER_KEY = 13;
@@ -9,7 +13,6 @@ const ENTER_KEY = 13;
 @observer
 export default class TodoItem extends React.Component {
 	@observable editText = "";
-
 	render() {
 		const {todo} = this.props;
 		return (
@@ -18,16 +21,30 @@ export default class TodoItem extends React.Component {
 				this.isBeingEdited ? "editing" : ""
 			].join(" ")}>
 				<div className="view">
-					<input
-						className="toggle"
-						type="checkbox"
-						checked={todo.completed}
-						onChange={this.handleToggle}
-					/>
-					<label onDoubleClick={this.handleEdit}>
-						{todo.title}
-					</label>
-					<button className="destroy" onClick={this.handleDestroy} />
+					<div className="view-row">
+						<input
+							className="toggle"
+							type="checkbox"
+							checked={todo.completed}
+							onChange={this.handleToggle}
+						/>
+						<label onDoubleClick={this.handleEdit}>
+							{todo.title}
+						</label>
+						<div className='add-tag-btn'>
+							<IconButton aria-label="add tag" disableFocusRipple disableRipple>
+								<LocalOfferOutlinedIcon />
+							</IconButton>
+						</div>
+						<div className='delete-todo-btn'>
+							<IconButton aria-label="delete todo" disableFocusRipple disableRipple onClick={this.handleDestroy}>
+								<DeleteOutlinedIcon />
+							</IconButton>
+						</div>
+					</div>
+					<div className="tag-row">
+
+					</div>
 				</div>
 				<input
 					ref="editField"
@@ -62,6 +79,11 @@ export default class TodoItem extends React.Component {
 	handleDestroy = () => {
 		this.props.todo.destroy();
 		this.props.viewStore.todoBeingEdited = null;
+	};
+
+	@action
+	handleAddTag = () => {
+		console.log('add tag');
 	};
 
 	@action

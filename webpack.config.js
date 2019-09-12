@@ -30,6 +30,11 @@ module.exports = {
       test: /\.jsx?$/,
       loaders: ['babel-loader'],
       exclude: NODE_MODULES_PATH,
-    }]
+    },
+    {
+      test: /\.css$/,
+      loader: 'style-loader!css-loader',
+    }
+  ]
   }
 };
