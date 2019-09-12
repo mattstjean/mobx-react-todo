@@ -16,7 +16,6 @@ export default class TodoItem extends React.Component {
 	@observable editText = "";
 	render() {
 		const {todo, viewStore, tagStore} = this.props;
-		console.log(this.props);
 		return (
 			<li className={[
 				todo.completed ? "completed": "",
@@ -113,11 +112,6 @@ export default class TodoItem extends React.Component {
 	handleToggle = () => {
 		this.props.todo.toggle();
 	};
-
-	@action
-	handleAddTag = () => {
-		/* todo */
-	}
 }
 
 TodoItem.propTypes = {
