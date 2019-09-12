@@ -14,7 +14,6 @@ const ENTER_KEY = 13;
 export default class TodoItem extends React.Component {
 	@observable editText = "";
 	render() {
-		console.log(this.state);
 		const {todo} = this.props;
 		return (
 			<li className={[
