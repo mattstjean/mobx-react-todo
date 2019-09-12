@@ -14,6 +14,7 @@ const ENTER_KEY = 13;
 export default class TodoItem extends React.Component {
 	@observable editText = "";
 	render() {
+		console.log(this.state);
 		const {todo} = this.props;
 		return (
 			<li className={[
@@ -32,7 +33,7 @@ export default class TodoItem extends React.Component {
 							{todo.title}
 						</label>
 						<div className='add-tag-btn'>
-							<IconButton aria-label="add tag" disableFocusRipple disableRipple>
+							<IconButton aria-label="add tag" disableFocusRipple disableRipple onClick={this.handleAddTag}>
 								<LocalOfferOutlinedIcon />
 							</IconButton>
 						</div>
@@ -43,7 +44,7 @@ export default class TodoItem extends React.Component {
 						</div>
 					</div>
 					<div className="tag-row">
-
+						
 					</div>
 				</div>
 				<input
@@ -112,6 +113,11 @@ export default class TodoItem extends React.Component {
 	handleToggle = () => {
 		this.props.todo.toggle();
 	};
+
+	@action
+	handleAddTag = () => {
+		/* todo */
+	}
 }
 
 TodoItem.propTypes = {

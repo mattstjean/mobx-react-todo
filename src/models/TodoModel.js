@@ -5,6 +5,7 @@ export default class TodoModel {
 	id;
 	@observable title;
 	@observable completed;
+	@observable tags = [];
 
 	constructor(store, id, title, completed) {
 		this.store = store;
