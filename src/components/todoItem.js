@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {observer} from 'mobx-react';
 import {observable, action, computed} from 'mobx';
-import LocalOfferOutlinedIcon from '@material-ui/icons/LocalOfferOutlined';
+import EditOutlinedIcon from '@material-ui/icons/EditOutlined';
 import DeleteOutlinedIcon from '@material-ui/icons/DeleteOutlined';
 import IconButton from '@material-ui/core/IconButton';
 import Checkbox from '@material-ui/core/Checkbox';
@@ -34,12 +34,17 @@ export default class TodoItem extends React.Component {
 							icon={<CircleUnchecked />}
 							checkedIcon={<CircleChecked />}
 						/>
-						<label htmlFor={todo.id} className="item-label" onDoubleClick={this.handleEdit}>
+						<label htmlFor={todo.id} className="item-label">
 							{todo.title}
 						</label>
-						<div className='edit-tag-btn'>
+						{/* <div className='edit-tag-btn'>
 							<IconButton aria-label="edit tags" disableFocusRipple disableRipple onClick={this.handleEditTags}>
 								<LocalOfferOutlinedIcon />
+							</IconButton>
+						</div> */}
+						<div className='edit-tag-btn'>
+							<IconButton aria-label={'edit todo, ' + todo.title} onClick={this.handleEdit}>
+								<EditOutlinedIcon />
 							</IconButton>
 						</div>
 						<div className='delete-todo-btn'>
