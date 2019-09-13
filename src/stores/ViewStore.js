@@ -6,5 +6,5 @@ export default class ViewStore {
 	@observable todoFilter= ALL_TODOS;
 
 	@observable todoEditingTags = null;
-	@observable tagFilter = ALL_TAGS;
+	@observable tagFilter = [];
 }

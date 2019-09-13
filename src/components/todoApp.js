@@ -8,6 +8,7 @@ import TodoFooter from './todoFooter';
 import { ALL_TODOS, ACTIVE_TODOS, COMPLETED_TODOS } from '../constants';
 
 import DevTool from 'mobx-react-devtools';
+import FilterBar from './filterBar';
 
 @observer
 export default class TodoApp extends React.Component {
@@ -19,6 +20,7 @@ export default class TodoApp extends React.Component {
 				<header className="header">
 					<h1>todos</h1>
 					<TodoEntry todoStore={todoStore} />
+					<FilterBar viewStore={viewStore} tagStore={tagStore} />
 				</header>
 				<TodoOverview todoStore={todoStore} viewStore={viewStore} tagStore={tagStore} />
 				<TodoFooter todoStore={todoStore} viewStore={viewStore} />

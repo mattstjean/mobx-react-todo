@@ -27,14 +27,14 @@ export default class TodoItem extends React.Component {
 				<div className="view">
 					<div className="view-row">
 						<Checkbox
+							id={todo.id}
 							className="toggle"
 							checked={todo.completed}
 							onChange={this.handleToggle}
 							icon={<CircleUnchecked />}
 							checkedIcon={<CircleChecked />}
-							inputProps={{'aria-labelledBy': 'toggle completed for todo, ' + todo.title}}
 						/>
-						<label id={todo.id} className="item-label" onDoubleClick={this.handleEdit}>
+						<label htmlFor={todo.id} className="item-label" onDoubleClick={this.handleEdit}>
 							{todo.title}
 						</label>
 						<div className='edit-tag-btn'>
