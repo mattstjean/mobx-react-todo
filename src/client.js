@@ -14,7 +14,6 @@ var viewStore = new ViewStore();
 var tagStore = TagStore.fromJS(initialState.tags || new Map());
 
 todoStore.subscribeServerToStore();
-tagStore.subscribeServerToStore();
 
 ReactDOM.render(
 	<TodoApp todoStore={todoStore} viewStore={viewStore} tagStore={tagStore} />,

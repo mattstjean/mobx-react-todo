@@ -26,17 +26,6 @@ export default class TagStore {
         }
     }
 
-    subscribeServerToStore() {
-		reaction(
-			() => this.toJS(),
-			tags => window.fetch && fetch('/api/tags', {
-				method: 'post',
-				body: JSON.stringify({ tags }),
-				headers: new Headers({ 'Content-Type': 'application/json' })
-			})
-		);
-	}
-
     toJS() {
 		return this.tags;
 	}

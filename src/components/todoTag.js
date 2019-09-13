@@ -31,7 +31,6 @@ export default class TodoTag extends React.Component {
         return (
             <ChipInput
                 fullWidth
-                label='Tags'
                 placeholder='Type and press enter to add tags'
                 className='chip-input'
                 value={this.tags.slice()}
