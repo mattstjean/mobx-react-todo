@@ -12,14 +12,6 @@ export default class TodoOverview extends React.Component {
 		if (todoStore.todos.length === 0)
 			return null;
 		return <section className="main">
-			<input
-				className="toggle-all"
-				id="toggle-all"
-				type="checkbox"
-				onChange={this.toggleAll}
-				checked={todoStore.activeTodoCount === 0}
-			/>
-			<label htmlFor="toggle-all"></label>
 			<ul className="todo-list">
 				{this.getVisibleTodos().map(todo =>
 					(<TodoItem
@@ -34,7 +26,7 @@ export default class TodoOverview extends React.Component {
 	}
 
 	getVisibleTodos() {
-		return this.props.todoStore.todos.filter(todo => {
+		let filteredTodos = this.props.todoStore.todos.filter(todo => {
 			switch (this.props.viewStore.todoFilter) {
 				case ACTIVE_TODOS:
 					return !todo.completed;
@@ -44,6 +36,14 @@ export default class TodoOverview extends React.Component {
 					return true;
 			}
 		});
+
+		if (this.props.viewStore.tagFilter.length > 0) {
+			filteredTodos = filteredTodos.filter(todo => {
+				return todo.tags.some(f => this.props.viewStore.tagFilter.indexOf(f) >= 0);
+			});
+		}
+
+		return filteredTodos;
 	}
 
 	getTagsAsArray() {
