@@ -37,11 +37,13 @@ export default class TodoOverview extends React.Component {
 			}
 		});
 
-		if (this.props.viewStore.tagFilter.length > 0) {
-			filteredTodos = filteredTodos.filter(todo => {
-				return todo.tags.some(f => this.props.viewStore.tagFilter.indexOf(f) >= 0);
-			});
-		}
+		filteredTodos = filteredTodos.filter(todo => {
+			// only show the todo if it includes all the tags currently
+			// being used for filtering
+			return this.props.viewStore.tagFilter.every(tag => {
+				return todo.tags.indexOf(tag) >= 0;
+			})
+		});
 
 		return filteredTodos;
 	}

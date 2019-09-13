@@ -48,7 +48,6 @@ export default class FilterBar extends React.Component {
     }
 
     toggle(key, i) {
-        console.log(this.isTagBeingFiltered(key));
         if (this.isTagBeingFiltered(key)) {
             console.log('remove ' + key + ' from filter list');
             this.removeTagFromFilters(key, i);

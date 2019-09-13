@@ -32,6 +32,11 @@
     border: 1px solid #cdcdcd;
 }
 
+.tag-input div div[role='button']:focus, .tag-input div div[role='button']:hover {
+    background-color: #e7e7e7;
+    border: 1px solid #cdcdcd;
+}
+
 /* .todo-tag-list {
     font-size: 16px;
     border: none;
