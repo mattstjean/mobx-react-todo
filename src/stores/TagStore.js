@@ -1,4 +1,4 @@
-import {observable, action, reaction} from 'mobx';
+import {observable, action, reaction, toJS} from 'mobx';
 
 export default class TagStore {
     @observable tags = new Map();
@@ -26,13 +26,24 @@ export default class TagStore {
         }
     }
 
-    toJS() {
-		return this.tags;
+    subscribeServerToStore() {
+		reaction(
+			() => this.toJS(),
+			tags => window.fetch && fetch('/api/tags', {
+				method: 'post',
+				body: JSON.stringify({tags}),
+				headers: new Headers({ 'Content-Type': 'application/json' })
+			})
+		);
 	}
+
+    toJS() {
+		return toJS(this.tags);
+    }
 
 	static fromJS(tagMap) {
 		const tagStore = new TagStore();
-        tagStore.tags = tagMap;
+        tagStore.tags = observable.map(tagMap);
         
 		return tagStore;
 	}

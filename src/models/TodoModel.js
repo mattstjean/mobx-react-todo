@@ -1,4 +1,4 @@
-import {observable} from 'mobx';
+import {observable, toJS} from 'mobx';
 
 export default class TodoModel {
 	store;
@@ -32,7 +32,7 @@ export default class TodoModel {
 			id: this.id,
 			title: this.title,
 			completed: this.completed,
-			tags: this.tags
+			tags: toJS(this.tags)
 		};
 	}
 

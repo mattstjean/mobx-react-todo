@@ -22,7 +22,7 @@ app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: config.output
 app.use(webpackHotMiddleware(compiler));
 
 const renderFullPage = html => {
-	const initialState = { todos };
+	const initialState = { todos, tags };
 	const initialStateJSON = escape( // So safe!
 		JSON.stringify(initialState),
 		{ wrap: true, isScriptContext: true, json: true }
@@ -52,6 +52,7 @@ const renderFullPage = html => {
 };
 
 let todos = []; // Todos are stored here
+let tags = new Map();
 
 app.use(bodyParser.json());
 
@@ -76,6 +77,12 @@ app.post('/api/todos', function(req, res) {
 	} else {
 		res.status(200).send(JSON.stringify({ success: false, error: "expected `todos` to be array" }));
 	}
+});
+
+app.post('/api/tags', function(req, res) {
+	tags = req.body.tags;
+	console.log('Updated tags');
+	res.status(201).send(JSON.stringify({ success: true }));
 });
 
 app.get('*', function(req, res) {
