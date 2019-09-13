@@ -86,7 +86,11 @@ export default class TodoItem extends React.Component {
 	@action
 	handleEditTags = () => {
 		const todo = this.props.todo;
-		this.props.viewStore.todoEditingTags = todo;
+		
+		this.props.viewStore.todoEditingTags = 
+			this.props.viewStore.todoEditingTags == todo ?
+				null : 
+				todo;
 	};
 
 	@action
