@@ -5,6 +5,9 @@ import {observable, action, computed} from 'mobx';
 import LocalOfferOutlinedIcon from '@material-ui/icons/LocalOfferOutlined';
 import DeleteOutlinedIcon from '@material-ui/icons/DeleteOutlined';
 import IconButton from '@material-ui/core/IconButton';
+import Checkbox from '@material-ui/core/Checkbox';
+import CircleChecked from '@material-ui/icons/CheckCircleOutline';
+import CircleUnchecked from '@material-ui/icons/RadioButtonUnchecked';
 import '../styles/todoItem.css';
 import TodoTag from './todoTag';
 
@@ -17,17 +20,24 @@ export default class TodoItem extends React.Component {
 	render() {
 		const {todo, viewStore, tagStore} = this.props;
 		return (
-			<li className={[
+			<li className={['todo-li',
 				todo.completed ? "completed": "",
 				this.isBeingEdited ? "editing" : ""
 			].join(" ")}>
 				<div className="view">
 					<div className="view-row">
-						<input
+						{/* <input
 							className="toggle"
 							type="checkbox"
 							checked={todo.completed}
 							onChange={this.handleToggle}
+						/> */}
+						<Checkbox
+							className="toggle"
+							checked={todo.completed}
+							onChange={this.handleToggle}
+							icon={<CircleUnchecked />}
+							checkedIcon={<CircleChecked />}
 						/>
 						<label className="item-label" onDoubleClick={this.handleEdit}>
 							{todo.title}

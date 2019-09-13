@@ -10,7 +10,8 @@ export default class TodoTag extends React.Component {
 
 	render() {
         const {viewStore, tagStore, todo} = this.props;
-        return (this.isTagsBeingEdited ? this.EditTagView() : this.DefaultTagView());
+        // return (this.isTagsBeingEdited ? this.EditTagView() : this.DefaultTagView());
+        return (this.EditTagView());
     }
 
     @computed
@@ -24,19 +25,31 @@ export default class TodoTag extends React.Component {
     }
     
     DefaultTagView() {
-        return '';
+        return (
+            <div className="tag-wrapper">
+                <ul className="todo-tag-list">
+                    { this.tags.slice().map( (tag, i) => (
+                        <li key={tag}>
+                            {tag}
+                        </li>
+                    ))}
+                </ul>
+            </div>
+        )
     }
 
     EditTagView() {
         return (
-            <ChipInput
-                fullWidth
-                placeholder='Type and press enter to add tags'
-                className='chip-input'
-                value={this.tags.slice()}
-                onAdd={(tag) => this.handleAddTag(tag)}
-                onDelete={(tag, index) => this.handleDeleteTag(tag, index)}
-            />
+            <div className="tag-input-wrapper">
+                <ChipInput
+                    fullWidth
+                    placeholder='Type and press enter to add tags'
+                    className='tag-input'
+                    value={this.tags.slice()}
+                    onAdd={(tag) => this.handleAddTag(tag)}
+                    onDelete={(tag, index) => this.handleDeleteTag(tag, index)}
+                />
+            </div>
         );
     }
 

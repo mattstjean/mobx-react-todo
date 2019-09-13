@@ -30,15 +30,6 @@ export default class TodoOverview extends React.Component {
 					/>)
 				)}
 			</ul>
-			<div>
-			<ul className="tag-list">
-				{
-					this.getTagsAsArray().map( ([key, val], i) => (
-						<li key={i}>{val} : {key}</li>
-					))
-				}
-			</ul>
-			</div>
 		</section>
 	}
 
