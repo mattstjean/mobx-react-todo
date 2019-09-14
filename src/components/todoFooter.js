@@ -1,23 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {observer} from 'mobx-react';
-import {action} from 'mobx';
+import {action, computed, observable} from 'mobx';
 import {pluralize} from '../utils';
 import { ALL_TODOS, ACTIVE_TODOS, COMPLETED_TODOS } from '../constants';
 
 @observer
 export default class TodoFooter extends React.Component {
 	render() {
-		const todoStore = this.props.todoStore;
+		const { viewStore, todoStore } = this.props;
 		if (!todoStore.activeTodoCount && !todoStore.completedCount)
 			return null;
 
-		const activeTodoWord = pluralize(todoStore.activeTodoCount, 'item');
+		const visibleTodoWord = pluralize(viewStore.visibleCount, 'item');
+		
 
 		return (
 			<footer className="footer">
 				<span className="todo-count">
-					<strong>{todoStore.activeTodoCount}</strong> {activeTodoWord} left
+					<strong>Displaying {viewStore.visibleCount} of {todoStore.activeTodoCount + todoStore.completedCount} {visibleTodoWord}</strong>
 				</span>
 				<ul className="filters">
 					{this.renderFilterLink(ALL_TODOS, "", "All")}
@@ -35,6 +36,7 @@ export default class TodoFooter extends React.Component {
 			</footer>
 		);
 	}
+
 
 	renderFilterLink(filterName, url, caption) {
 		return (<li>

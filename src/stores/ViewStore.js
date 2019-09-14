@@ -7,4 +7,6 @@ export default class ViewStore {
 
 	@observable todoEditingTags = null;
 	@observable tagFilter = [];
+
+	@observable visibleCount = 0;
 }

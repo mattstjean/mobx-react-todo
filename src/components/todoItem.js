@@ -129,6 +129,14 @@ export default class TodoItem extends React.Component {
 	handleToggle = () => {
 		this.props.todo.toggle();
 	};
+
+	componentDidMount() {
+		this.props.viewStore.visibleCount += 1;
+	}
+
+	componentWillUnmount() {
+		this.props.viewStore.visibleCount -= 1;
+	}
 }
 
 TodoItem.propTypes = {
