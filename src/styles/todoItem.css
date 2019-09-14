@@ -1,4 +1,4 @@
-.todo-list li .edit-tag-btn {
+.todo-list li .edit-todo-btn {
     right: 50px;
 }
 
@@ -6,7 +6,7 @@
     right: 10px;
 }
 
-.todo-list li .edit-tag-btn, .todo-list li .delete-todo-btn {
+.todo-list li .edit-todo-btn, .todo-list li .delete-todo-btn {
 	/* display: none; */
 	position: absolute;
 	top: 5px;

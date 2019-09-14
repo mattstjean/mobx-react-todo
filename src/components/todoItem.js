@@ -37,8 +37,8 @@ export default class TodoItem extends React.Component {
 						<label htmlFor={todo.id} className="item-label">
 							{todo.title}
 						</label>
-						<div className='edit-tag-btn'>
-							<IconButton aria-label="edit tags" onClick={this.handleEditTags}>
+						<div className='edit-todo-btn'>
+							<IconButton aria-label="edit todo" onClick={this.handleEdit}>
 								<EditOutlinedIcon />
 							</IconButton>
 						</div>
@@ -86,16 +86,6 @@ export default class TodoItem extends React.Component {
 		});
 		this.props.todo.destroy();
 		this.props.viewStore.todoBeingEdited = null;
-	};
-
-	@action
-	handleEditTags = () => {
-		const todo = this.props.todo;
-		
-		this.props.viewStore.todoEditingTags = 
-			this.props.viewStore.todoEditingTags == todo ?
-				null : 
-				todo;
 	};
 
 	@action
