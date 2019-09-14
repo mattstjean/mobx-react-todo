@@ -38,12 +38,12 @@ export default class TodoItem extends React.Component {
 							{todo.title}
 						</label>
 						<div className='edit-tag-btn'>
-							<IconButton aria-label="edit tags" disableFocusRipple disableRipple onClick={this.handleEditTags}>
+							<IconButton aria-label="edit tags" onClick={this.handleEditTags}>
 								<EditOutlinedIcon />
 							</IconButton>
 						</div>
 						<div className='delete-todo-btn'>
-							<IconButton aria-label="delete todo" disableFocusRipple disableRipple onClick={this.handleDestroy}>
+							<IconButton aria-label="delete todo" onClick={this.handleDestroy}>
 								<DeleteOutlinedIcon />
 							</IconButton>
 						</div>
