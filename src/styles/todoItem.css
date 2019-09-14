@@ -7,7 +7,7 @@
 }
 
 .todo-list li .edit-tag-btn, .todo-list li .delete-todo-btn {
-	display: none;
+	/* display: none; */
 	position: absolute;
 	top: 5px;
 	/* right: 30px; */
@@ -19,8 +19,9 @@
 	color: #cc9a9a; */
 	margin-bottom: 11px;
 	transition: color 0.2s ease-out;
+	opacity: 0.6;
 }
 
-.todo-list li:hover .edit-tag-btn, .todo-list li:hover .delete-todo-btn {
-	display: block;
+.toggle {
+	opacity: 0.6;
 }

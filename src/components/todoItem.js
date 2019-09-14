@@ -37,13 +37,8 @@ export default class TodoItem extends React.Component {
 						<label htmlFor={todo.id} className="item-label">
 							{todo.title}
 						</label>
-						{/* <div className='edit-tag-btn'>
-							<IconButton aria-label="edit tags" disableFocusRipple disableRipple onClick={this.handleEditTags}>
-								<LocalOfferOutlinedIcon />
-							</IconButton>
-						</div> */}
 						<div className='edit-tag-btn'>
-							<IconButton aria-label={'edit todo, ' + todo.title} onClick={this.handleEdit}>
+							<IconButton aria-label="edit tags" disableFocusRipple disableRipple onClick={this.handleEditTags}>
 								<EditOutlinedIcon />
 							</IconButton>
 						</div>
